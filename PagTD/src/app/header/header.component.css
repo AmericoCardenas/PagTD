@@ -1,0 +1,13 @@
+span{
+    font-weight:bold !important;
+}
+
+a {
+  font-weight: bold !important;
+}
+
+@media (max-width: 768px) {
+  .hidde {
+    display: none !important;
+  }
+}

@@ -1,0 +1,9 @@
+a{
+    color:white !important;
+}
+
+@media (max-width: 768px) {
+  .hidde {
+    display: none !important;
+  }
+}

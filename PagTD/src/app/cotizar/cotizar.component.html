@@ -1,0 +1,510 @@
+<div class="container">
+  <form [formGroup]="myform" (ngSubmit)="SendEmail(myform)">
+    <div class="row text-center">
+      <div class="col-lg-2 col-md-12 col-sm-12">
+
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <label class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" required placeholder="Nombre Completo" formControlName="nombrecompleto">
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="nombrecompleto?.invalid && (nombrecompleto?.dirty || nombrecompleto?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="nombrecompleto!.errors?.['required']">El nombre completo es requerido.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+
+        <p></p>
+
+        <label class="form-label">Cantidad de personas</label>
+        <input type="number" class="form-control" required placeholder="Cantidad de personas" formControlName="cantidadpersonas">
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="cantidadpersonas?.invalid && (cantidadpersonas?.dirty || cantidadpersonas?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="cantidadpersonas!.errors?.['required']">La cantidad de personas es requerida.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+
+        <p></p>
+
+        <label class="form-label">Fecha de salida</label>
+        <input type="date" class="form-control" formControlName="fechasalida" required>
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="fechasalida?.invalid && (fechasalida?.dirty || fechasalida?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="fechasalida!.errors?.['required']">La fecha de salida es requerida.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+        <p></p>
+
+
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <label class="form-label">Telefono</label>
+        <input type="number" class="form-control" required placeholder="Telefono" formControlName="telefono">
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="telefono!.errors?.['required']">El telefono es requerido.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+        <p></p>
+        <label class="form-label">Tipo de servicio</label>
+        <select class="form-select" formControlName="servicio" required>
+          <option selected>---</option>
+          <option value="Sencillo">Sencillo</option>
+          <option value="Redondo">Redondo</option>
+        </select>
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="servicio?.invalid && (servicio?.dirty || servicio?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="servicio!.errors?.['required']">El servicio es requerido.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+        <p></p>
+        <label class="form-label">Fecha de regreso</label>
+        <input type="date" class="form-control" formControlName="fecharegreso" required>
+        <!-- ERROR VALIDATOR -->
+        <div *ngIf="fecharegreso?.invalid && (fecharegreso?.dirty || fecharegreso?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="fecharegreso!.errors?.['required']">La fecha regreso es requerida.</div>
+        </div>
+        <!-- ERROR VALIDATOR -->
+      </div>
+      <div class="col-lg-2 col-md-12 col-sm-12">
+
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-lg-1 col-md-12 col-sm-12"></div>
+      <div class="col-lg-4 col-sm-12 col-md-12">
+        <div class="hidde">
+          <div class="card" style="background-color: gainsboro !important; width: 30rem;">
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Origen</label>
+              </div>
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Calle</label>
+                  <input type="text" class="form-control" placeholder="Calle" formControlName="calleorigen" required>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="calleorigen?.invalid && (calleorigen?.dirty || calleorigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="calleorigen!.errors?.['required']">La calle es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Número</label>
+                  <input type="number" class="form-control" placeholder="Número" formControlName="numorigen" required>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="numorigen?.invalid && (numorigen?.dirty || numorigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="numorigen!.errors?.['required']">El número es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+
+              </div>
+
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Colonia</label>
+                  <input type="text" class="form-control" placeholder="Colonia" formControlName="coloniaorigen" required>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="coloniaorigen?.invalid && (coloniaorigen?.dirty || coloniaorigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="coloniaorigen!.errors?.['required']">La colonia es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Referencia</label>
+                  <input type="text" class="form-control" placeholder="Referencia" formControlName="reforigen" required>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="reforigen?.invalid && (reforigen?.dirty || reforigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="reforigen!.errors?.['required']">La referencia es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Estado</label>
+                  <select name="estado" class="form-select" required formControlName="estadoorigen">
+                    <option selected>---</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Baja California">Baja California</option>
+                    <option value="Baja California Sur">Baja California Sur</option>
+                    <option value="Campeche">Campeche</option>
+                    <option value="Chiapas">Chiapas</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="Coahuila">Coahuila</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Durango">Durango</option>
+                    <option value="Estado de México">Estado de México</option>
+                    <option value="Guanajuato">Guanajuato</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Michoacán">Michoacán</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Nayarit">Nayarit</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                    <option value="Oaxaca">Oaxaca</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Querétaro">Querétaro</option>
+                    <option value="Quintana Roo">Quintana Roo</option>
+                    <option value="San Luis Potosí">San Luis Potosí</option>
+                    <option value="Sinaloa">Sinaloa</option>
+                    <option value="Sonora">Sonora</option>
+                    <option value="Tabasco">Tabasco</option>
+                    <option value="Tamaulipas">Tamaulipas</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Yucatán">Yucatán</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                  </select>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="estadoorigen?.invalid && (estadoorigen?.dirty || estadoorigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="estadoorigen!.errors?.['required']">El estado es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Municipio / Ciudad</label>
+                  <input type="text" class="form-control" placeholder="Municipio / Ciudad" required formControlName="municipioorigen">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="municipioorigen?.invalid && (municipioorigen?.dirty || municipioorigen?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="municipioorigen!.errors?.['required']">El municipio es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="show">
+          <p></p>
+          <label class="form-label" style="font-weight:bold !important;">Origen</label>
+          <p></p>
+          <input type="text" class="form-control" placeholder="Calle" required formControlName="calleorigen">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="calleorigen?.invalid && (calleorigen?.dirty || calleorigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="calleorigen!.errors?.['required']">La calle es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="number" class="form-control" required formControlName="numorigen" placeholder="Número">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="numorigen?.invalid && (numorigen?.dirty || numorigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="numorigen!.errors?.['required']">El número es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" required formControlName="coloniaorigen" placeholder="Colonia">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="coloniaorigen?.invalid && (coloniaorigen?.dirty || coloniaorigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="coloniaorigen!.errors?.['required']">La colonia es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" required formControlName="reforigen" placeholder="Referencia">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="reforigen?.invalid && (reforigen?.dirty || reforigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="reforigen!.errors?.['required']">La referencia es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <select name="estado" class="form-select" required formControlName="estadoorigen">
+            <option selected>Estado</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+          </select>
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="estadoorigen?.invalid && (estadoorigen?.dirty || estadoorigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="estadoorigen!.errors?.['required']">El estado es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" placeholder="Municipio / Ciudad" required formControlName="municipioorigen">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="municipioorigen?.invalid && (municipioorigen?.dirty || municipioorigen?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="municipioorigen!.errors?.['required']">El municipio es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+        </div>
+
+      </div>
+      <div class="col-lg-1 col-md-12 col-sm-12"></div>
+      <div class="col-lg-4 col-sm-12 col-md-12">
+        <div class="hidde">
+          <div class="card" style="background-color: gainsboro !important; width: 30rem;">
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Destino</label>
+              </div>
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Calle</label>
+                  <input type="text" class="form-control" placeholder="Calle" required formControlName="calledestino">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="calledestino?.invalid && (calledestino?.dirty || calledestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="calledestino!.errors?.['required']">La calle es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Número</label>
+                  <input type="number" class="form-control" required formControlName="numdestino" placeholder="Número">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="numdestino?.invalid && (numdestino?.dirty || numdestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="numdestino!.errors?.['required']">El numero es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+
+              </div>
+
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Colonia</label>
+                  <input type="text" class="form-control" required formControlName="coloniadestino" placeholder="Colonia">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="coloniadestino?.invalid && (coloniadestino?.dirty || coloniadestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="coloniadestino!.errors?.['required']">La colonia es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Referencia</label>
+                  <input type="text" class="form-control" required formControlName="refdestino" placeholder="Referencia">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="refdestino?.invalid && (refdestino?.dirty || refdestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="refdestino!.errors?.['required']">La referencia es requerida.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-auto">
+                  <label class="form-label">Estado</label>
+                  <select name="estado" class="form-select" required formControlName="estadodestino">
+                    <option selected>---</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Baja California">Baja California</option>
+                    <option value="Baja California Sur">Baja California Sur</option>
+                    <option value="Campeche">Campeche</option>
+                    <option value="Chiapas">Chiapas</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="Coahuila">Coahuila</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Durango">Durango</option>
+                    <option value="Estado de México">Estado de México</option>
+                    <option value="Guanajuato">Guanajuato</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Michoacán">Michoacán</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Nayarit">Nayarit</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                    <option value="Oaxaca">Oaxaca</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Querétaro">Querétaro</option>
+                    <option value="Quintana Roo">Quintana Roo</option>
+                    <option value="San Luis Potosí">San Luis Potosí</option>
+                    <option value="Sinaloa">Sinaloa</option>
+                    <option value="Sonora">Sonora</option>
+                    <option value="Tabasco">Tabasco</option>
+                    <option value="Tamaulipas">Tamaulipas</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Yucatán">Yucatán</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                  </select>
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="estadodestino?.invalid && (estadodestino?.dirty || estadodestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="estadodestino!.errors?.['required']">El estado es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+                <div class="col-auto">
+                  <label class="form-label">Municipio / Ciudad</label>
+                  <input type="text" class="form-control" placeholder="Municipio / Ciudad" required formControlName="municipiodestino">
+                  <!-- ERROR VALIDATOR -->
+                  <div *ngIf="municipiodestino?.invalid && (municipiodestino?.dirty || municipiodestino?.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="municipiodestino!.errors?.['required']">El municipio es requerido.</div>
+                  </div>
+                  <!-- ERROR VALIDATOR -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="show">
+          <p></p>
+          <label class="form-label" style="font-weight:bold !important;">Destino</label>
+          <p></p>
+          <input type="text" class="form-control" required formControlName="calledestino" placeholder="Calle">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="calledestino?.invalid && (calledestino?.dirty || calledestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="calledestino!.errors?.['required']">La calle es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="number" class="form-control" required formControlName="numdestino" placeholder="Número">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="numdestino?.invalid && (numdestino?.dirty || numdestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="numdestino!.errors?.['required']">El numero es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" required formControlName="coloniadestino" placeholder="Colonia">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="coloniadestino?.invalid && (coloniadestino?.dirty || coloniadestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="coloniadestino!.errors?.['required']">La colonia es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" required formControlName="refdestino" placeholder="Referencia">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="refdestino?.invalid && (refdestino?.dirty || refdestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="refdestino!.errors?.['required']">La referencia es requerida.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <select name="estado" class="form-select" required formControlName="estadodestino">
+            <option selected>Estado</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+          </select>
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="estadodestino?.invalid && (estadodestino?.dirty || estadodestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="estadodestino!.errors?.['required']">El estado es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+          <input type="text" class="form-control" placeholder="Municipio / Ciudad" required formControlName="municipiodestino">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="municipiodestino?.invalid && (municipiodestino?.dirty || municipiodestino?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="municipiodestino!.errors?.['required']">El municipio es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+          <p></p>
+        </div>
+
+
+      </div>
+      <div class="col-lg-2 col-md-12 col-sm-12"></div>
+
+    </div>
+
+    <div class="row text-center">
+      <p></p>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <button type="submit" class="btn btn-secondary btn-lg">Cotizar</button>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+      </div>
+      <p style="margin-top:1% !important;"></p>
+    </div>
+  </form>
+</div>

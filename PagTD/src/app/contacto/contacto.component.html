@@ -1,0 +1,171 @@
+<div class="container-fluid">
+  <div class="row" style="background-color:gainsboro !important;">
+    <div class="col-lg-12">
+      <a routerLink="/cotizar">
+
+        <img src="assets/td19.png" class="img-fluid" />
+        </a>
+    </div>
+  </div>
+  <div class="row text-center" style="background-color:gainsboro !important;">
+    <div class="col-lg-2 col-sm-12 col-md-12"></div>
+    <div class="col-lg-8 col-sm-12 col-md-12">
+      <p style="margin-top:30px !important;"></p>
+      <h3 style="font-weight:bolder !important;">
+        ¡Escríbenos!
+      </h3>
+      <p style="font-size:x-large !important;">
+        ¿Tienes alguna duda, quieres cotizar o
+        simplemente quieres conocernos más?
+      </p>
+      <p style="margin-top: 5% !important;"></p>
+    </div>
+  </div>
+
+
+</div>
+<p style="margin-top:1% !important;"></p>
+<div class="container">
+  <div class="row text-center">
+    <p style="margin-top:20px !important;"></p>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1>Contáctanos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <p style="margin-top:20px !important;"></p>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <form [formGroup]="myform" (ngSubmit)="SendEmail(myform)">
+        <div class="mb-3">
+          <label class="form-label">Nombre Completo</label>
+          <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombrecompleto"
+                 required>
+
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="nombrecompleto?.invalid && (nombrecompleto?.dirty || nombrecompleto?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="nombrecompleto!.errors?.['required']">El nombre completo es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" placeholder="Correo Electrónico"
+                 name="correo" required formControlName="correo">
+
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="correo?.invalid && (correo?.dirty || correo?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="correo!.errors?.['required']">El correo es requerido.</div>
+            <div *ngIf="correo!.errors?.['email']">El correo no es valido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Teléfono</label>
+          <input type="number" class="form-control" placeholder="Teléfono" formControlName="telefono"
+                 name="telefono" required>
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="telefono!.errors?.['required']">El telefono es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tipo de servicio a contratar</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Transporte de personal" formControlName="servicio"
+                   id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Transporte de personal
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Viaje Especial" formControlName="servicio"
+                   id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Viaje Especial
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Renta de Unidades" formControlName="servicio"
+                   id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Renta de Unidades
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Selecciona tu estado</label>
+          <select name="estado" class="form-select" formControlName="estado">
+            <option selected>---</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ciudad-Municipio</label>
+          <input type="text" class="form-control" placeholder="Ciudad-Municipio" required formControlName="municipio">
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="municipio?.invalid && (municipio?.dirty || municipio?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="municipio!.errors?.['required']">El municipio es requerido.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Comentarios</label>
+          <textarea class="form-control" placeholder="Comentarios" required formControlName="comentarios"></textarea>
+          <!-- ERROR VALIDATOR -->
+          <div *ngIf="comentarios?.invalid && (comentarios?.dirty || comentarios?.touched)"
+               class="alert alert-danger">
+            <div *ngIf="comentarios!.errors?.['required']">Los comentarios son requeridos.</div>
+          </div>
+          <!-- ERROR VALIDATOR -->
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-warning btn-lg">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+

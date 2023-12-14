@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .img2 {
+        display:none !important;
+    }
+}
+
+@media (min-width:800px) {
+  .img3{
+      display:none !important;
+  }
+}
+

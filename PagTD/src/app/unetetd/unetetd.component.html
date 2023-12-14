@@ -1,0 +1,230 @@
+<div class="container-fluid">
+  <div class="row" style="background-color:gainsboro !important;">
+    <div class="col-lg-12">
+      <a routerLink="/cotizar">
+
+        <img src="assets/TD18.png" class="img-fluid" />
+        </a>
+    </div>
+  </div>
+
+  <div class="row text-center" style="background-color:gainsboro !important;">
+    <p style="margin-top:1% !important;"></p>
+    <h1 style="color: #b8860b !important;">Únete a Transportes Davila</h1>
+  </div>
+
+    <div class="row text-center" style="background-color:gainsboro !important;">
+      <div class="col-lg-2 col-sm-12 col-md-12">
+      </div>
+      <div class="col-lg-8 col-sm-12 col-md-12">
+        <p style="margin-top:30px !important;"></p>
+        <p style="font-size:large !important;font-weight:bolder !important;text-align:justify !important;">
+          Somos la empresa líder en movilidad de personas en México, comprometida con la seguridad y satisfacción de nuestros clientes.
+          Nuestros valores rigen nuestras acciones en cada actividad que realizamos, así como valoramos la diversidad e inclusión. Nuestra gente es clave para el logro de nuestros objetivos, por lo que buscamos colaboradores apasionados de los retos.
+          Contamos con oportunidades que podrían apoyar tu carrera laboral. Si estas interesado en un equipo de trabajo con retos de alto impacto, en Transportes Davila tenemos diferentes oportunidades a nivel estatal. Sólo tienes que llenar el siguiente formulario de acuerdo a tus intereses profesionales.
+        </p>
+        <p style="margin-top:5% !important;"></p>
+      </div>
+    </div>
+
+
+  </div>
+  <p style="margin-top:1% !important;"></p>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2>Aplica a nuestras vacantes</h2>
+      </div> 
+    </div>
+    <div class="row text-center">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <!-- FORM -->
+        <form [formGroup]="formAdmin" (ngSubmit)="SendEmailAdmin(formAdmin)" >
+          <h3>Administrativo</h3>
+          <div class="mb-3">
+            <label class="form-label">Nombre Completo (obligatorio)</label>
+            <input type="text" class="form-control" formControlName="nombrecompleto" placeholder="Nombre Completo" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="nombrecompleto?.invalid && (nombrecompleto?.dirty || nombrecompleto?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="nombrecompleto!.errors?.['required']">El nombre es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Teléfono (obligatorio)</label>
+            <input type="number" class="form-control" formControlName="telefono" placeholder="Teléfono" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="telefono!.errors?.['required']">El telefono es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email (obligatorio)</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="email!.errors?.['required']">El email es requerido.</div>
+              <div *ngIf="email!.errors?.['email']">El email no es correcto.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">¿A cuál de nuestras vacantes deseas aplicar? (obligatorio)</label>
+            <select class="form-select" formControlName="puesto" required>
+              <option selected>---</option>
+              <option value="Director">Director</option>
+              <option value="Gerente">Gerente</option>
+              <option value="Coordinador">Coordinador</option>
+              <option value="Jefatura">Jefatura</option>
+              <option value="Analista">Analista</option>
+            </select>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="puesto?.invalid && (puesto?.dirty || puesto?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="puesto!.errors?.['required']">El puesto es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Área de Interés (obligatorio)</label>
+            <select class="form-select" formControlName="vacante" required>
+              <option selected>---</option>
+              <option value="Capital Humano">Capital Humano</option>
+              <option value="Compras">Compras</option>
+              <option value="Finanzas">Finanzas</option>
+              <option value="Tecnologías de la información (IT)">Tecnologías de la información (IT)</option>
+              <option value="Operaciones">Operaciones</option>
+              <option value="Comercial">Comercial</option>
+              <option value="Taller">Taller</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="vacante?.invalid && (vacante?.dirty || vacante?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="vacante!.errors?.['required']">La vacante es requerida.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">En caso de seleccionar "OTRO", especifique</label>
+            <input type="text" class="form-control" placeholder="---" formControlName="otro">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Adjunta tu CV (obligatorio)</label>
+            <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)" formControlName="cv" required >
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="cv?.invalid && (cv?.dirty || cv?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="cv!.errors?.['required']">El CV es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-warning btn-lg">Enviar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <form [formGroup]="formOperador" (ngSubmit)="SendEmailOperador(formOperador)">
+
+          <h3>Operativo</h3>
+          <div class="mb-3">
+            <label class="form-label">Nombre Completo (obligatorio)</label>
+            <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombreop" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="nombreop?.invalid && (nombreop?.dirty || nombreop?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="nombreop!.errors?.['required']">El nombre es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Teléfono (obligatorio)</label>
+            <input type="number" class="form-control" formControlName="telefonoop" placeholder="Teléfono" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="telefonoop?.invalid && (telefonoop?.dirty || telefonoop?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="telefonoop!.errors?.['required']">El telefono es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email (obligatorio)</label>
+            <input type="email" class="form-control" formControlName="emailop" placeholder="Email" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="emailop?.invalid && (emailop?.dirty || emailop?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="emailop!.errors?.['required']">El email es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Números de contacto 1 (obligatorio)</label>
+            <input type="number" class="form-control" formControlName="num1" placeholder="Opción 1: 10 dígitos" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="num1?.invalid && (num1?.dirty || num1?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="num1!.errors?.['required']">El número es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Números de contacto 2 (obligatorio)</label>
+            <input type="number" class="form-control" formControlName="num2" placeholder="Opción 2: 10 dígitos" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="num2?.invalid && (num2?.dirty || num2?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="num2!.errors?.['required']">El número es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">¿Cuántos años de experiencia tienes como conductor?</label>
+            <input type="number" class="form-control" formControlName="exp" placeholder="---" required>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="exp?.invalid && (exp?.dirty || exp?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="exp!.errors?.['required']">Este campo es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">¿Qué tipo de licencia vigente tienes? (obligatorio)</label>
+            <select class="form-select" formControlName="licencia" required>
+              <option selected>---</option>
+              <option value="Estatal">Estatal</option>
+              <option value="Federal">Federal</option>
+              <option value="Chofer">Chofer</option>
+              <option value="Especial Urbano">Especial Urbano</option>
+            </select>
+            <!-- ERROR VALIDATOR -->
+            <div *ngIf="licencia?.invalid && (licencia?.dirty || licencia?.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="licencia!.errors?.['required']">Este campo es requerido.</div>
+            </div>
+            <!-- ERROR VALIDATOR -->
+
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-warning btn-lg">Enviar</button>
+          </div>
+          </form>
+      </div>
+     
+    </div>
+
+
+  </div>
+
+

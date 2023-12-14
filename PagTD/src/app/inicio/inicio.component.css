@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+  .hidde {
+    display: none !important;
+  }
+
+  .show {
+    display: block !important;
+  }
+}
+
+@media (min-width: 800px) {
+/*  .hidde {
+    display: none !important;
+  }*/
+
+  .show {
+    display: none !important;
+  }
+}
